@@ -5,12 +5,16 @@
 //  Created by 리나 on 2021/01/18.
 //
 
-struct CurrentWeather: Codable {
-    let icon: [WeatherIcon]
+struct Weather: Decodable {
+    private let weather: [WeatherIcon]
     let temperature: Temperature
-
+    
+    var icon: WeatherIcon? {
+        return weather.first
+    }
+    
     enum CodingKeys: String, CodingKey {
-        case icon = "weather"
+        case weather
         case temperature = "main"
     }
 }

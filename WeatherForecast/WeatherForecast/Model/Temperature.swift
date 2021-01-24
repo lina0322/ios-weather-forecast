@@ -5,14 +5,16 @@
 //  Created by 리나 on 2021/01/18.
 //
 
-struct Temperature: Codable {
+import Foundation
+
+struct Temperature: Decodable {
     let average: Double
-    let min: Double
-    let max: Double
-    
+    let minimum: Double
+    let maximum: Double
+
     enum CodingKeys: String, CodingKey {
         case average = "temp"
-        case min = "temp_min"
-        case max = "temp_max"
+        case minimum = "temp_min"
+        case maximum = "temp_max"
     }
 }
